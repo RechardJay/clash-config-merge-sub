@@ -22,6 +22,6 @@ jobs:
         run: |
           git config --global user.name "github-actions"
           git config --global user.email "actions@github.com"
-          git add config.yaml
+          git add alvin_merged.yaml
           git commit -m "Auto update $(date)" || exit 0
           git push

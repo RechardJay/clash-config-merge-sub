@@ -97,7 +97,7 @@ def main():
     with open(OUTPUT, "w", encoding="utf-8") as f:
         yaml.dump(final, f, allow_unicode=True, sort_keys=False, indent=2)
 
-    print("\n✅ 生成完成：merged.yaml")
+    print(f"\n✅ 生成完成：{OUTPUT}")
     print(f"📶 节点总数：{len(plist)}")
 
 if __name__ == "__main__":
