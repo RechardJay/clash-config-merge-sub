@@ -15,19 +15,17 @@ dns:
     - 0.0.0.0/32
 proxies:
 - name: 节点01
-  type: anytls
-  server: 198.200.57.154
-  port: 22556
-  password: github.com/Alvin9999-newpac/fanqiang
-  udp: true
-  idle-session-check-interval: 30
-  idle-session-timeout: 30
-  min-idle-session: 5
+  type: hysteria
+  server: 62.210.70.191
+  port: 23556
+  auth-str: github.com/Alvin9999-newpac/fanqiang
   sni: bing.com
-  alpn:
-  - h2
-  - http/1.1
   skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
 - name: 节点02
   type: hysteria
   server: 163.172.117.163
@@ -41,18 +39,6 @@ proxies:
   up: 11 Mbps
   down: 55 Mbps
 - name: 节点03
-  type: hysteria
-  server: 62.210.70.191
-  port: 23556
-  auth-str: github.com/Alvin9999-newpac/fanqiang
-  sni: bing.com
-  skip-cert-verify: true
-  alpn:
-  - h3
-  protocol: udp
-  up: 11 Mbps
-  down: 55 Mbps
-- name: 节点04
   type: hysteria
   server: 2a14:7584:d097::a
   port: 54177
@@ -72,7 +58,6 @@ proxy-groups:
   - 节点01
   - 节点02
   - 节点03
-  - 节点04
   - DIRECT
 - name: ⚡ 自动选择
   type: fallback
@@ -82,7 +67,6 @@ proxy-groups:
   - 节点01
   - 节点02
   - 节点03
-  - 节点04
 - name: 🛑 广告拦截
   type: select
   proxies:
