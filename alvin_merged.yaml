@@ -17,9 +17,45 @@ proxies:
 - name: 节点01
   type: hysteria
   server: 62.210.70.191
+  port: 24667
+  auth-str: dongtaiwang.com
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: 节点02
+  type: hysteria
+  server: 163.172.117.163
+  port: 36699
+  auth-str: dongtaiwang.com
+  sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: 节点03
+  type: hysteria
+  server: 62.210.70.191
   port: 23556
   auth-str: github.com/Alvin9999-newpac/fanqiang
   sni: bing.com
+  skip-cert-verify: true
+  alpn:
+  - h3
+  protocol: udp
+  up: 11 Mbps
+  down: 55 Mbps
+- name: 节点04
+  type: hysteria
+  server: 2a14:7584:d097::a
+  port: 54177
+  auth-str: dongtaiwang.com
+  sni: apple.com
   skip-cert-verify: true
   alpn:
   - h3
@@ -32,6 +68,9 @@ proxy-groups:
   proxies:
   - ⚡ 自动选择
   - 节点01
+  - 节点02
+  - 节点03
+  - 节点04
   - DIRECT
 - name: ⚡ 自动选择
   type: fallback
@@ -39,6 +78,9 @@ proxy-groups:
   interval: 5
   proxies:
   - 节点01
+  - 节点02
+  - 节点03
+  - 节点04
 - name: 🛑 广告拦截
   type: select
   proxies:
